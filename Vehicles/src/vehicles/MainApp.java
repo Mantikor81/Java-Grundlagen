@@ -8,8 +8,10 @@ package vehicles;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Scanner;
+import java.util.TreeSet;
 
 /**
  *
@@ -28,6 +30,11 @@ public class MainApp {
 
         List<Car> carlist = new ArrayList<>();
 
+        // HashSet zeigt bei Gleichheit nur ein Fahrzeug
+        //HashSet<Car> hashCar = new HashSet<>();
+        //hashCar.add(new Car());
+        //hashCar.add(new Car());
+        //System.out.println("Das HashSet enthält: "+ hashCar.size());
         System.out.println("Das Programm kann durch Eingabe der Zahl für die entsprechende Menüpunkte benutzt werden");
         while (!ende) {
             System.out.println(" ");
@@ -35,6 +42,7 @@ public class MainApp {
             System.out.println(" ");
             System.out.println("0 - Programm beenden | 1 - neues Fahrzeug anlegen | 2 -  bestimmtes Fahrzeug löschen | 3 - alle Fahrzeuge löschen");
             System.out.println("4 - Liste der Fahrzeuge anzeigen | 5 - Liste der Fahrzeuge in Datei | 6 - Fahrzeug benutzen");
+            System.out.println("7 - Liste der Fahrzeuge nach km Sortieren");
             System.out.println("_________________________________________________________________________________________________________________");
             System.out.println(" ");
             System.out.print("Menue-Punkt: ");
@@ -123,6 +131,14 @@ public class MainApp {
                                 break;
                         }
                     }
+                    break;
+                case 7:
+                    TreeSet<Car> CarSort = new TreeSet<>();
+                    for (Car element : carlist) {
+                        CarSort.add(element);
+
+                    }
+                    System.out.println(CarSort);
                     break;
             }
 
